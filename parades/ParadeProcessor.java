@@ -21,10 +21,6 @@ public class ParadeProcessor {
 		return word[pos];
 	}
 
-	public void insertRule(int i, int j) {
-		
-	}
-	
 	public String getFinalWord() {
 		int i = 0;
 		int j = 0;
@@ -61,14 +57,6 @@ public class ParadeProcessor {
 	public int getMaxWordLength() {
 		return matrixSize[0][0];
 	}
-	
-	public int maxOf(char a, char b) {
-		if (a<=b)
-			return 2;
-		else 
-			return 3;
-	}
-
 
 	public void createMatriesx(){
 		//Matrix has size length w1 + length w2
