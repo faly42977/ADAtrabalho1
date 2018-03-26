@@ -30,10 +30,9 @@ public class ParadeProcessor {
 		int j = 0;
 		int wordLenth = 0;
 		String word = "";
-		while (wordLenth < getMaxWordLength())
+		while (wordLenth < getMaxWordLength()) {
 				if (matrixRule[i][j] == 1) {
 					word += findAt(i, word1);
-					//System.out.println(word);
 					wordLenth++;
 					i+=1;
 					j+=1;
@@ -45,85 +44,23 @@ public class ParadeProcessor {
 					i+=1;
 				}
 				else if(matrixRule[i][j] == 4) {
-					/*
-					if(matrixRule[i+1][j] == 4) {
-						i++;
-					}
-					else if(matrixRule[i][j+1] == 4) {
+					if(findAt(i, word1) < findAt(j, word2) && last1[i] > j) 
 						j++;
-					}
-					*/
-					
-					
-					if(findAt(i, word1) < findAt(j, word2)) {
-						if(last1[i] > j )
-							j++;
-						else if (last2[j] > i)
-							i++;
-						else {
-							i++;
-							j++;
-						}
-					}
-					else{
-						if(last2[j] > i )
-							i++;
-						else if(last1[i] > j) 
-							j++;
-						else {
-							i++;
-							j++;
-						}
-							
-					}
-					
-					
-					/*
-					if(last1[i] > j )
-						j++;
+		
 					else if (last2[j] > i)
 						i++;
 					else {
-						i++;
 						j++;
+						i++;
 					}
-					*/
-					
 				}
-				else
-					System.out.println("error");
-				
-		
-					return word;
+		}
+		return word;
 	}
 	
 	public int getMaxWordLength() {
 		return matrixSize[0][0];
 	}
-	
-	public void printMatrixSize() {
-		System.out.print(" ");
-		System.out.println(word2);
-		for (int i = 0 ; i < word1.length ; i++) {
-			System.out.print(findAt(i, word1));
-			for (int j = 0 ; j < word2.length ; j++)		
-				System.out.print(matrixSize[i][j]);
-			System.out.println("");
-		}
-	}
-	
-	public void printMatrixRule() {
-		System.out.print(" ");
-		System.out.println(word2);
-		for (int i = 0 ; i < word1.length ; i++) {
-			System.out.print(findAt(i, word1));
-			for (int j = 0 ; j < word2.length ; j++)		
-				System.out.print(matrixRule[i][j]);
-			System.out.println("");
-		}
-		
-	}
-
 	
 	public int maxOf(char a, char b) {
 		if (a<=b)
@@ -165,21 +102,9 @@ public class ParadeProcessor {
 					else {
 						matrixSize[i][j]= matrixSize[i+1][j];
 						matrixRule[i][j]= 4;
-						//matrixRule[i][j]= maxOf( findAt(i, word1),  findAt(j, word2));
-						//matrixSize[i][j]= matrixSize[i+1][j];
-					}
-						
+					}	
 				}
 			}
 		}
-
-		//printMatrixSize();
-		
 	}
-	
-	
-	
-	
-	
-
 }
